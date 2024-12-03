@@ -1,14 +1,20 @@
 server:
   port: 8083
-  
-
+      
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    hostname: eureka-server
+#  application:
+#    name: VACCINE-CENTERS-SERVICE
 spring:
-  application:
-    name: VACCINE-CENTERS-SERVICE
+
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/SpringProject
-    password: root
-    username: root
+    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/${MYSQL_DB_NAME:SpringProject}
+    password: ${MYSQL_PWD:root}
+    username: ${MYSQL_USERNAME:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
